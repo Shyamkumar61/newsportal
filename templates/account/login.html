@@ -1,0 +1,49 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+
+    {% block content %}
+            <section class="vh-100 gradient-custom">
+              <div class="container py-2 h-100">
+                <div class="row d-flex justify-content-center align-items-center h-100 pb-5">
+                  <div class="col-12 col-md-8 col-lg-6 col-xl-6">
+                    <div class="card maindiv" style="border-radius: 1rem;box-shadow: 10px 10px 8px 10px #888888;">
+                      <div class="card-body p-5 text-center">
+
+                        <div class="mb-md-5 mt-md-4 pb-1">
+                          <h2 class="font-weight-bold h2 mb-2 text-uppercase">Login</h2>
+                          <p class="text-dark-50 mb-5">Please enter your login and password!</p>
+
+                            <form action="" method="POST">
+                                {% csrf_token %}
+                                <div class="form-outline form-white mb-4 text-left">
+                                  <label class="text-start" for="typeEmailX">Email</label>
+                                  <input type="email" id="typeEmailX" name="email" class="form-control form-control-lg" />
+                                </div>
+
+                                <div class="form-outline form-white mb-4 text-left">
+                                  <label class="form-label" for="typePasswordX">Password</label>
+                                  <input type="password" id="typePasswordX" name="password" class="form-control form-control-lg" />
+                                </div>
+
+                                <p class="small mb-3 pb-lg-2"><a class="text-dark-50" href="#!">Forgot password?</a></p>
+
+                                <button class="btn btn-primary btn-lg btn-block " type="submit">Login</button>
+                            </form>
+                        </div>
+                        <div style="display: flex;justify-content: space-evenly;">
+                          <a href="#"><span class="fab fa-facebook-f h3" ></span></button></a>
+                          <a href="#"><span class="fab fa-google h3 text-danger"></span></i></button></a>
+                        </div >
+
+                        <div class="mt-2">
+                            <p class="mb-0">Don't have an account? <a href="#!" class="text-dark-50 fw-bold">Sign Up</a>
+                              </p>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </section>
+    {% endblock %}

@@ -1,0 +1,62 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+
+    {% block content %}
+            <section class="vh-100 gradient-custom">
+  <div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100 pb-5">
+      <div class="col-12 col-md-8 col-lg-6 col-xl-6">
+        <div class="card maindiv" style="border-radius: 1rem; box-shadow: 10px 10px 8px 10px #888888;">
+          <div class="card-body px-5 text-center">
+
+            <div class="mb-md-5 mt-md-4 pb-1">
+
+              <h2 class="font-weight-bold h2 mb-5 text-uppercase"> Sign Up</h2>
+             <form method="POST">
+                 {% csrf_token %}
+
+                 {% for fields in form %}
+              <div class="form-outline form-white mb-2 text-left">
+                <label class="text-start" for="typeEmailX">{{ fields.label }}</label>
+                {{ fields }}
+              </div>
+                 {% endfor %}
+<!--              <div class="form-outline form-white mb-2 text-left">-->
+<!--                <label class="text-start" for="typeEmailX">Email</label>-->
+<!--                <input type="email" id="typeEmailX" class="form-control form-control-lg" />-->
+<!--              </div>-->
+<!--              <div class="form-outline form-white mb-2 text-left">-->
+<!--                <label class="text-start" for="typeEmailX">Phone Number</label>-->
+<!--                <input type="email" id="typeEmailX" class="form-control form-control-lg" />-->
+<!--              </div>-->
+
+<!--              <div class="form-outline form-white mb-2 text-left">-->
+<!--                <label class="form-label" for="typePasswordX">Password</label>-->
+<!--                <input type="password" id="typePasswordX" class="form-control form-control-lg" />-->
+<!--              </div>-->
+
+<!--              <div class="form-outline form-white mb-2 text-left">-->
+<!--                <label class="form-label" for="typePasswordX">Confirm Password</label>-->
+<!--                <input type="password" id="typePasswordX" class="form-control form-control-lg" />-->
+<!--              </div>-->
+                 <div class="mt-5">
+                  <button class="btn btn-primary btn-lg btn-block mt-2 " type="submit">Sign Up</button></div>
+
+            </form>
+            </div>
+            <div style="display: flex;justify-content: space-evenly;">
+            <a href="#"><span class="fab fa-facebook-f h3" ></span></button></a>
+            <a href="#"><span class="fab fa-google h3 text-danger"></span></i></button></a>
+           </div >
+            <div class="mt-2">
+              <p class="mb-0">if you have an account? <a href="#!" class="text-dark-50 fw-bold">Login</a>
+              </p>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+    {% endblock %}

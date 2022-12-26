@@ -1,0 +1,6 @@
+{% load static %}
+{% if article.type != article.YOUTUBE %}
+    <img src="{% static  'images/' %}{{ article.get_image_url}}"alt="IMG">
+{% else %}
+    <iframe width="100%" height="540" src="https://www.youtube.com/embed/{{article.youtube_video_id}}?autoplay=1&mute=1" allow='autoplay'></iframe>
+{% endif %}

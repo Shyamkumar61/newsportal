@@ -1,0 +1,36 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+	{% block content %}
+         <section class="projectsList">
+      <div class="container">
+        <div class="grid grid--three">
+
+          <div class="column card project">
+            <a href="" class="project">
+
+
+              <img class="project__thumbnail" src="{{item.get_image}}" alt="project thumbnail" />
+              <div class="card__body">
+                <h3 class="project__title">Demo</h3>
+                <p><a class="project__author" href="">Shyam</a></p>
+
+                  <a href="" class="project">Edit</a>
+
+                <p class="project__info">
+                  Test
+                </p>
+                <div class="project__tags">
+
+                  <span class="tag tag--pill tag--main">
+                    <small>Test</small>
+                  </span>
+
+                </div>
+              </div>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+    {% endblock %}
