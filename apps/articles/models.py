@@ -4,7 +4,6 @@ from ckeditor.fields import RichTextField
 from django.db import models
 from treebeard.mp_tree import MP_Node
 from django.utils.translation import gettext_lazy as _
-from autoslug import AutoSlugField
 from django_extensions.db.fields import AutoSlugField
 from django.core import serializers
 from django.core.serializers.json import DjangoJSONEncoder
