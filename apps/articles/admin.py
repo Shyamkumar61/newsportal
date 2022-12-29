@@ -7,11 +7,13 @@ from django import forms
 
 # Register your models here.
 
+
 class ArticleCategoryAdmin(TreeAdmin):
     form = movenodeform_factory(ArticleCategory)
     list_display = ('name', 'name_en', 'slug')
     list_editable = ('name_en',)
     readonly_fields = ('slug',)
+
 
 class ArticleAdmin(admin.ModelAdmin):
 
@@ -22,6 +24,7 @@ class ArticleAdmin(admin.ModelAdmin):
     search_fields = ['title']
     autocomplete_fields = ['tags']
 
+
 class ArticleAdminForm(forms.ModelForm):
     short_description = forms.CharField(widget=CKEditorWidget())
 
@@ -29,16 +32,19 @@ class ArticleAdminForm(forms.ModelForm):
         model = Article
         fields = '__all__'
 
+
 class ArticleTagAdmin(admin.ModelAdmin):
 
     list_display = ('name', 'slug')
     search_fields = ('name', )
     readonly_fields = ('slug',)
 
+
 class LeadNewsAdmin(admin.ModelAdmin):
 
     list_display = ('article', 'position', 'created')
     list_editable = ('position',)
+
 
 class PageAdmin(admin.ModelAdmin):
 

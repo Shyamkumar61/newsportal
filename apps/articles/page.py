@@ -6,7 +6,6 @@ from apps.articles.pages.video import VideoPage
 from apps.articles.pages.tag import TagPage
 
 
-
 class PageRendered:
 
     IDPAGE = 'id-page'

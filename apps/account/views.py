@@ -41,53 +41,63 @@ class LogOutView(RedirectView):
         return super(LogOutView, self).get(request, *args, **kwargs)
 
 
-class SingupView(SuccessMessageMixin, generic.CreateView):
+class SingupView(generic.CreateView):
 
     form_class = SingUpForm
     success_url = '/'
     template_name = 'account/singup.html'
-    success_message = "Thank you for Registering !!"
-
-    def form_valid(self, form):
-        self.object = form.save()
-        username = self.request.POST['email']
-        password = self.request.POST['password1']
-        redirect_url = self.get_success_url()
-        user = authenticate(username=form.cleaned_data['email'], password=form.cleaned_data['password1'])
-        login(self.request, user)
-        messages.success(self.request, 'Thank you for Registering !!')
-        return HttpResponseRedirect(redirect_url)
 
 
-# class ProfileHomeView(TemplateView):
+# class SingupView(SuccessMessageMixin, generic.CreateView):
 #
-#     template_name = ''
+#     form_class = SingUpForm
+#     success_url = '/'
+#     template_name = 'account/singup.html'
+#     success_message = "Thank you for Registering !!"
 #
-#     def get_context_data(self, **kwargs):
-#         context = super(ProfileHomeView, self).get_context_data(**kwargs)
-#         context['user_details'] = self.request.user
-#         return context
+#     def form_valid(self, form):
+#         self.object = form.save()
+#         username = self.request.POST['email']
+#         password = self.request.POST['password1']
+#         print(self.request.POST)
+#         redirect_url = self.get_success_url()
+#         user = authenticate(username=form.cleaned_data['email'], password=form.cleaned_data['password1'])
+#         login(self.request, user)
+#         messages.success(self.request, 'Thank you for Registering !!')
+#         return HttpResponseRedirect(redirect_url)
 
 
-# class EditProfileView(TemplateView):
-#
-#     template_name = ''
-#     register_form_class = EditProfile
-#
-#     def post(self,request, *args, **kwargs):
-#         context = self.get_context_data(**kwargs)
-#         form = self.register_form_class(request.POST, request.FILES, instance=self.request.user)
-#         if form.is_valid():
-#             usr = form.save()
-#             return HttpResponseRedirect('/account/profile')
-#         context['form'] = form
-#         return self.register_form_class(context)
-#
-#     def get_context_data(self, **kwargs):
-#         context = super(EditProfileView, self).get_context_data(**kwargs)
-#         form = self.register_form_class(instance=self.request.user)
-#         context['form'] = form
-#         return context
+class ProfileHomeView(TemplateView):
+
+    template_name = 'account/profile.html'
+
+    def get_context_data(self, **kwargs):
+        context = super(ProfileHomeView, self).get_context_data(**kwargs)
+        context['user_details'] = self.request.user
+        print(context['user_details'])
+        return context
+
+
+class EditProfileView(TemplateView):
+
+    template_name = 'account/edit_profile.html'
+    register_form_class = EditProfile
+
+    def post(self, request, *args, **kwargs):
+        context = self.get_context_data(**kwargs)
+        form = self.register_form_class(request.POST, request.FILES, instance=self.request.user)
+        if form.is_valid():
+            usr = form.save()
+            return HttpResponseRedirect('/account/profile')
+        context['form'] = form
+        return self.register_form_class(context)
+
+    def get_context_data(self, **kwargs):
+        context = super(EditProfileView, self).get_context_data(**kwargs)
+        form = self.register_form_class(instance=self.request.user)
+        context['user_details'] = self.request.user
+        context['form'] = form
+        return context
 
 
 

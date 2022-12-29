@@ -15,7 +15,7 @@ class Account(AbstractBaseUser, PermissionsMixin):
     first_name = models.CharField(max_length=200, blank=True, null=True)
     last_name = models.CharField(max_length=200, blank=True, null=True)
     about = models.TextField(blank=True, null=True)
-    image = models.ImageField(blank=True, null=True)
+    image = models.ImageField(blank=True, null=True, default='profiles/')
     is_staff = models.BooleanField(
         _("staff status"),
         default=False,
@@ -44,3 +44,5 @@ class Account(AbstractBaseUser, PermissionsMixin):
         full_name = "%s %s" % (self.first_name, self.last_name)
         return full_name.strip()
 
+    def get_image_url(self):
+        return 'https://news-day-2022.s3.amazonaws.com/media/%s' % self.image

@@ -1,0 +1,35 @@
+.epaper-head
+  {
+    font-family:Product Sans Bold;
+    font-size:2em;
+    font-weight:bold;
+    color:#3559a7;
+    margin-bottom:0!important;
+  }
+
+.epaper-padding-top
+  {
+    padding-top:1em;
+  }
+
+.fa-rss-square
+  {
+    padding-right:0.5em;
+    color:#e57825!important;
+  }
+.rss-item
+  {
+    font-size:1.1em;
+    font-family:Product Sans Bold;
+    color:#000;
+    text-transform:capitalize;
+  }
+.title-line-epaper
+  {
+    background: linear-gradient(to right, #f36763, #a1a1a2);
+    height: 1px;
+    margin-top:0!important;
+    width:144px;
+    margin-left:0;
+
+  }

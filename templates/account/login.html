@@ -31,12 +31,12 @@
                             </form>
                         </div>
                         <div style="display: flex;justify-content: space-evenly;">
-                          <a href="#"><span class="fab fa-facebook-f h3" ></span></button></a>
-                          <a href="#"><span class="fab fa-google h3 text-danger"></span></i></button></a>
+                          <a href="{% url 'social:begin' 'facebook' %}"><span class="fab fa-facebook-f h3" ></span></button></a>
+                          <a href="{% url 'social:begin' 'google-oauth2' %}"><span class="fab fa-google h3 text-danger"></span></i></button></a>
                         </div >
 
                         <div class="mt-2">
-                            <p class="mb-0">Don't have an account? <a href="#!" class="text-dark-50 fw-bold">Sign Up</a>
+                            <p class="mb-0">Don't have an account? <a href="{% url 'singup' %}" class="text-dark-50 fw-bold">Sign Up</a>
                               </p>
                         </div>
 

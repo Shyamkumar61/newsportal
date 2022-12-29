@@ -23,14 +23,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-wmf-&o)bvul$%l@980n6%=8jkq6no0cz2l(au^2&ekiwp1(0)$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 CORS_ORIGIN_ALLOW_ALL = True
 
-CORS_ORIGIN_WHITELIST = (
-                            'http://example.com',
-                            'http://127.0.0.1:8000',
-                            'http://localhost:8000',
-                        )
 
 ALLOWED_HOSTS = ['*']
 
@@ -46,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django.contrib.sites',
+    'social_django',
     'treebeard',
     'mptt',
     'ckeditor',
@@ -53,6 +49,7 @@ INSTALLED_APPS = [
     'storages',
     'apps.account',
     'apps.articles',
+    'apps.general'
 ]
 
 
@@ -65,6 +62,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'social_django.middleware.SocialAuthExceptionMiddleware',
 
 ]
 
@@ -81,6 +79,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'social_django.context_processors.backends',
+                'social_django.context_processors.login_redirect',
             ],
         },
     },
@@ -88,7 +88,12 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'magnews.wsgi.application'
 
+AUTHENTICATION_BACKENDS = (
+    'social_core.backends.facebook.FacebookOAuth2',
+    'social_core.backends.google.GoogleOAuth2',
 
+    'django.contrib.auth.backends.ModelBackend',
+)
 
 # Database
 # https://docs.djangoproject.com/en/4.1/ref/settings/#databases
@@ -104,6 +109,8 @@ DATABASES = {
     }
 }
 
+
+
 CACHES = {
     'default': {
         'BACKEND': 'django.core.cache.backends.redis.RedisCache',
@@ -112,6 +119,7 @@ CACHES = {
 }
 
 AUTH_USER_MODEL = 'account.Account'
+
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators
 
@@ -130,6 +138,14 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+LOGIN_URL = 'login'
+LOGOUT_URL = 'logout'
+LOGIN_REDIRECT_URL = 'home'
+
+SOCIAL_AUTH_FACEBOOK_KEY = '561888365952438'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '6bbc740ab4d2867dc5e8b23d51026bf8'  # App Secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '25758544786-m5ah11oukrovgrobun3dpdg1evcifba2.apps.googleusercontent.com'  #CLient Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'  #Secret Key
 
 
 # Internationalization

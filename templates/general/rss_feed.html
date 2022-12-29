@@ -1,0 +1,28 @@
+{% extends 'articles/base.html' %}
+{% load static %}
+	{% block content %}
+<div class="container">
+  <div class="row"  style="text-align:left;">
+      <p class="epaper-head">RSS Feeds</p>
+      <hr class="title-line-epaper">
+  </div>
+
+  <div class ="row epaper-padding-top">
+    <div class="col-xs-12 col-sm-9 col-md-9">
+        <div class ="row">
+              <div class="col-xs-12 col-sm-6 col-md-6 ">
+                <span><p class=""><i class="fa fa-rss-square" aria-hidden="true"></i><a href="" class="rss-item">Latest News</a></p></span>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 ">
+                <span><p class=""><i class="fa fa-rss-square" aria-hidden="true"></i><a href="" class="rss-item">Lead News</a></p></span>
+              </div>
+          {% for category in categories %}
+              <div class="col-xs-12 col-sm-6 col-md-6 ">
+                <span><p class=""><i class="fa fa-rss-square" aria-hidden="true"></i><a href="" class="rss-item">{{category.name_en}}</a></p></span>
+              </div>
+          {% endfor %}
+          </div>
+      </div>
+  </div>
+</div>
+{% endblock %}

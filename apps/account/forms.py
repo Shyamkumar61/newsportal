@@ -39,7 +39,14 @@ class EditProfile(ModelForm):
 
     class Meta:
         model = User
-        fields = ('email', 'first_name', 'last_name')
+        fields = ('first_name', 'last_name', 'email')
+
+        labels = {
+            'first_name': 'First Name',
+            'last_name': 'Last Name',
+            'email': 'Email',
+
+        }
 
     def __init__(self, *args, **kwargs):
         super(EditProfile, self).__init__(*args, **kwargs)
