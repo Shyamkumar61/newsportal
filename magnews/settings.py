@@ -20,10 +20,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 'django-insecure-wmf-&o)bvul$%l@980n6%=8jkq6no0cz2l(au^2&ekiwp1(0)$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 CORS_ORIGIN_ALLOW_ALL = True
 
 SITE_ID = 2
@@ -102,9 +102,9 @@ AUTHENTICATION_BACKENDS = (
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ.get('NAME'),
-        'USER': os.environ.get('USER'),
-        'PASSWORD': os.environ.get('PASSWORD'),
+        'NAME': 'magnews',
+        'USER': 'magadmin',
+        'PASSWORD': 'shyam6132',
         'HOST': 'mag-test.cbgeeaq8u7vo.ap-south-1.rds.amazonaws.com',
         'PORT': '5432'
     }
@@ -143,10 +143,10 @@ LOGIN_URL = 'login'
 LOGOUT_URL = 'logout'
 LOGIN_REDIRECT_URL = 'home'
 
-SOCIAL_AUTH_FACEBOOK_KEY = os.environ.get('SOCIAL_AUTH_FACEBOOK_KEY')  # App ID
-SOCIAL_AUTH_FACEBOOK_SECRET = os.environ.get('SOCIAL_AUTH_FACEBOOK_SECRET')  # App Secret
-SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_KEY')  #CLient Key
-SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = os.environ.get('SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET')  #Secret Key
+SOCIAL_AUTH_FACEBOOK_KEY = '561888365952438'  # App ID
+SOCIAL_AUTH_FACEBOOK_SECRET = '6bbc740ab4d2867dc5e8b23d51026bf8'  # App Secret
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '25758544786-m5ah11oukrovgrobun3dpdg1evcifba2.apps.googleusercontent.com'  #CLient Key
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = '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'  #Secret Key
 
 
 # Internationalization
@@ -175,8 +175,8 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 MEDIA_ROOT = os.path.join(BASE_DIR, 'static/images')
 
 
-AWS_S3_ACCESS_KEY_ID = os.environ.get('AWS_S3_ACCESS_KEY_ID')
-AWS_S3_SECRET_ACCESS_KEY = os.environ.get('AWS_S3_SECRET_ACCESS_KEY')
+AWS_S3_ACCESS_KEY_ID = 'AKIAWMAN27LIX42LNMPH'
+AWS_S3_SECRET_ACCESS_KEY = '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'
 AWS_STORAGE_BUCKET_NAME = 'news-day-2022'
 AWS_DEFAULT_ACL = None
 AWS_S3_CUSTOM_DOMAIN = f'{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com'
