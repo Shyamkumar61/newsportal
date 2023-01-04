@@ -1,5 +1,4 @@
 from django.shortcuts import get_object_or_404
-
 from apps.articles.models import Page
 from apps.articles.core import PageBase
 from apps.articles.utils import get_object_or_none
